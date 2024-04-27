@@ -43,13 +43,13 @@ def download_public_key(username):
             user_info = file.split('-')
             if user_info[0] == username:
                 filename = os.path.join(UPLOAD_KEY, file)
-                return send_file(filename, attachment_filename='publicKey.pem', as_attachment=True)
+                return send_file(filename, as_attachment=True)
 
 @app.route('/file-directory/retrieve/file/<filename>')
 def download_file(filename):
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     if os.path.isfile(filepath):
-        return send_file(filepath, attachment_filename='Encrypted-File.txt', as_attachment=True)
+        return send_file(filepath, as_attachment=True)
     else:
         return render_template('file-list.html', msg='An issue encountered, our team is working on that')
 
