@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Public Key Directory</title>
+    <title>Public Key Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            color: #337ab7;
+        }
+        p {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-	{%if msg != ''%}
-		<h3>{{msg}}</h3>
-	{%else%}
-	<p style="font-size:20px"><b>The following are the different files stored on the cloud:</b></p>
-		<table>
-			<thead>
-				<tr>
-					<th>Username</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th>Uploader</th>
-				</tr>
-			</thead>
-			<tbody>
-					{%for itr in range(length):%}
-					<tr>
-						<td><a href="retrieve/key/{{directory[itr]}}">Click here to download public key</a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>{{directory[itr]}}</td>
-					</tr>
-					{%endfor%}
-			</tbody>
-		</table>
-	{%endif%}
+    {% if msg != '' %}
+        <h3>{{ msg }}</h3>
+    {% else %}
+        <p><b>The following are the different files stored on the cloud:</b></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Uploader</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for itr in range(length): %}
+                    <tr>
+                        <td><a href="retrieve/key/{{ directory[itr] }}">Click here to download public key</a></td>
+                        <td>{{ directory[itr] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 </body>
 </html>
