@@ -1,60 +1,113 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Character encoding scheme -->
-		<meta charset="UTF-8"> 
-		<title>Thrain - Register</title>
-	</head>
-	<body>
-		<center>
-			<h2><b>Register yourself</b></h2>
-			<br><h6>{{ name }}</h6>
-			<br>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Character encoding scheme -->
+    <meta charset="UTF-8" />
+    <title>Thrain - Register</title>
+    <style>
+      /* Custom CSS */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h2 {
+        color: #333;
+      }
+      h6 {
+        color: #666;
+      }
+      /* Adjust modal size */
+      .modal-dialog {
+        width: 350px;
+      }
+      /* Adjust input field width */
+      input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      /* Adjust modal button styles */
+      .modal-footer .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h2><b>Register yourself</b></h2>
+      <br />
+      <h6>{{ name }}</h6>
+      <br />
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click here to register yourself</button>
+      <!-- Trigger the modal with a button -->
+      <button
+        type="button"
+        class="btn btn-info btn-lg"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Click here to register yourself
+      </button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Register</h4>
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h4 class="modal-title">Register</h4>
+            </div>
+            <div class="modal-body">
+              <form action="/register-new-user" method="POST">
+                <input
+                  name="username"
+                  type="text"
+                  placeholder="Username"
+                  required
+                /><br />
+                <input
+                  name="first-name"
+                  type="text"
+                  placeholder="First Name"
+                  required
+                /><br />
+                <input
+                  name="last-name"
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                /><br />
+                <br />
+                <input type="submit" class="btn btn-lg btn-info" />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <form action="/register-new-user" method="POST">
-				<input name="username" type="text" placeholder = "username" required width="120vw"> <br >
-				<input name="first-name" type="text" placeholder= "first name" required width="20vw"> <br > 
-				<input name="last-name" type="text" placeholder= "second name" required width="20vw"> <br >
-				<br>
-				<input type="submit" class="btn btn-lg btn-info">
-			</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-
-
-
-
-			
-		</center>
-	</body>
+    </center>
+  </body>
 </html>

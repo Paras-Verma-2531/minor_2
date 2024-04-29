@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Character encoding scheme -->
-		<meta charset="UTF-8">
-		<title>Files on the cloud</title> 
-	</head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Character encoding scheme -->
+    <meta charset="UTF-8">
+    <title>Files on the cloud</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            margin-top: 0;
+            color: #337ab7;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-top: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #23527c;
+        }
+    </style>
+</head>
 <body>
-	{% if msg!=''%}
-		<h3 style="color: red">{{msg}}</h3>
-	{%else%}
-		<h3>File Directory</h3>
-		{% for itr in range(length):%}
-			<li><a href="retrieve/file/{{list[itr]}}">{{list[itr]}}</a></li>
-		{% endfor%}
-	{%endif%}
+    <div class="container">
+        {% if msg != '' %}
+            <h3 style="color: red">{{ msg }}</h3>
+        {% else %}
+            <h3>File Directory</h3>
+            <ul>
+                {% for itr in range(length): %}
+                    <li><a href="retrieve/file/{{ list[itr] }}">{{ list[itr] }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
